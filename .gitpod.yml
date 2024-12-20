@@ -14,8 +14,7 @@ tasks:
 
   - name: Install kubectl
     init: |
-      # Set Kubernetes version (replace $K8S_VERSION with the actual version or dynamically retrieve it)
-      #K8S_VERSION="1.23"  # Example version, replace or dynamically fetch
+         
       echo "Downloading kubectl for Kubernetes version $K8S_VERSION..."
       curl -LO "https://s3.us-west-2.amazonaws.com/amazon-eks/$K8S_VERSION/2023-05-25/bin/linux/amd64/kubectl"
       # Make kubectl executable and move to PATH
