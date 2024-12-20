@@ -12,7 +12,7 @@ tasks:
       rm -rf awscliv2.zip ./aws
       cd $THEIA_WORKSPACE_ROOT
 
- - name: Install kubectl
+  - name: Install kubectl
     init: |
 	    echo "Downloading kubectl for Kubernetes version $K8S_VERSION..."
       curl -LO "https://s3.us-west-2.amazonaws.com/amazon-eks/$K8S_VERSION/2023-05-25/bin/linux/amd64/kubectl"
