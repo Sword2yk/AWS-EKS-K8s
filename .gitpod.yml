@@ -27,6 +27,8 @@ tasks:
   - name: Install eksctl
     before: |
       cd /workspace
+      mkdir eksctlbin
+      cd eksctlbin
       # Install eksctl CLI
       echo "Installing eksctl CLI..."
       curl -sL "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_Linux_amd64.tar.gz" -o eksctl.tar.gz
