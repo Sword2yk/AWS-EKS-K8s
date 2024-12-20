@@ -13,11 +13,12 @@ tasks:
       cd $THEIA_WORKSPACE_ROOT
   - name: Install kubectl CLI
     before: |
+      cd /workspace
       # Install kubectl CLI
       mkdir kubectlbinary
       cd kubectlbinary
       echo "Downloading kubectl for Kubernetes version $K8S_VERSION..."
-      curl -LO "curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.31.2/2024-11-15/bin/linux/amd64/kubectl"
+      curl -LO "https://s3.us-west-2.amazonaws.com/amazon-eks/$K8S_VERSION/2023-05-25/bin/linux/amd64/kubectl"
       # Make kubectl executable and move to PATH
       chmod +x kubectl
       sudo mv kubectl /usr/local/bin
