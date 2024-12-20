@@ -10,7 +10,7 @@ tasks:
       sudo ./aws/install
       rm -rf awscliv2.zip ./aws
       cd $THEIA_WORKSPACE_ROOT
-  - name: Install kubectl CLI
+  - name: Install kubectl CLI & eksctl CLI
     before: |
       cd /workspace
       # Install kubectl CLI
@@ -23,17 +23,23 @@ tasks:
       sudo mv kubectl /usr/local/bin
       # Verify kubectl installation
       kubectl version --client
-      cd $THEIA_WORKSPACE_ROOT
-  - name: Install eksctl
-    before: |
-      cd /workspace
-      mkdir eksctlbin
-      cd eksctlbin
       # Install eksctl CLI
-      echo "Installing eksctl CLI..."
-      curl -sL "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_Linux_amd64.tar.gz" -o eksctl.tar.gz
-      tar -xzf eksctl.tar.gz -C /usr/local/bin
-      rm eksctl.tar.gz
-
+      brew install weaveworks/tap/eksctl
       # Verify eksctl installation
-      eksctl version
+      eksctl version      
+      cd $THEIA_WORKSPACE_ROOT
+  #- name: Install eksctl
+  #  before: |
+  #    cd /workspace
+  #    mkdir eksctlbin
+  #    cd eksctlbin
+  #    # Install eksctl CLI
+  #    echo "Installing eksctl CLI..."
+  #    #curl -sL "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_Linux_amd64.tar.gz" -o eksctl.tar.gz
+  #    curl -sLO "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_Linux_amd64.tar.gz" -o eksctl.tar.gz
+  #    tar -xzf eksctl_Linux_amd64.tar.gz -C /usr/local/bin
+  #    tar -xzf ksctl_Linux_amd64.tar.gz -C /tmp && rm eksctl_Linux_amd64.tar.gz
+  #    #rm eksctl_Linux_amd64.tar.gz
+  #
+  #    # Verify eksctl installation
+  #    eksctl version
