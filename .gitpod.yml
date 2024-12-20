@@ -13,7 +13,6 @@ tasks:
       cd $THEIA_WORKSPACE_ROOT
   - name: Install kubectl CLI
     before: |
-      cd /workspace
       # Install kubectl CLI
       mkdir kubectlbinary
       cd kubectlbinary
