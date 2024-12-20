@@ -22,5 +22,5 @@ tasks:
       chmod +x kubectl
       sudo mv kubectl /usr/local/bin
       # Verify kubectl installation
-      kubectl version --client --short
+      kubectl version --client
       cd $THEIA_WORKSPACE_ROOT
