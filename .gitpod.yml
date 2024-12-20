@@ -24,3 +24,14 @@ tasks:
       # Verify kubectl installation
       kubectl version --client
       cd $THEIA_WORKSPACE_ROOT
+  - name: Install eksctl
+    before: |
+      cd /workspace
+      # Install eksctl CLI
+      echo "Installing eksctl CLI..."
+      curl -sL "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_Linux_amd64.tar.gz" -o eksctl.tar.gz
+      tar -xzf eksctl.tar.gz -C /usr/local/bin
+      rm eksctl.tar.gz
+
+      # Verify eksctl installation
+      eksctl version
